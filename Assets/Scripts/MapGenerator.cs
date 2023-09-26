@@ -9,6 +9,10 @@ public class MapGenerator : MonoBehaviour
     public int mapHeight;
     public float noiseScale;
 
+    //MapGenerator'da width,height ya da noise scale'de bir degisiklik yapildiginda,
+    //auto update edilip edilmemesini kontrol edecek variable.
+    public bool isAutoUpdateOn; //Buradaki deger MapGeneratorEditor'u etkiliyor.
+
     public void GenerateMap()
     {
         //Noise class'indan noisemap'i aliyoruz.
