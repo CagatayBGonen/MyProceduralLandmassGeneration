@@ -4,12 +4,14 @@ using UnityEngine;
 
 public class MapGenerator : MonoBehaviour
 {
+    //Burada haritamizi define eden (tanimlayan) bir cok values (Deger,variables) sahibiz.
     public int mapWidth;
     public int mapHeight;
     public float noiseScale;
 
     public void GenerateMap()
     {
+        //Noise class'indan noisemap'i aliyoruz.
         float[,] noiseMap = Noise.GenerateNoiseMap(mapWidth, mapHeight, noiseScale);
     }
 }
