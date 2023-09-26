@@ -1,18 +1,24 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEditor;
 
-public class MapGeneratorEditor : MonoBehaviour
+//Bu class'in bir customeditor oldugunu ve type'nin MapGenerator oldugunu belirtmemiz gerekiyor.
+[CustomEditor(typeof(MapGenerator))] //bunu yazmasaniz dugme gozukmez.
+public class MapGeneratorEditor : Editor
 {
-    // Start is called before the first frame update
-    void Start()
+    public override void OnInspectorGUI()
     {
-        
-    }
+        //Mapgenerator'un referanci alliyoruz.
+        MapGenerator mapGenerator = (MapGenerator)target;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        //Draws the default inspector.
+        DrawDefaultInspector();
+
+        //inspector icindeki Generate buttonuna basildiginda, MapGenerator classindaki GenerateMap Metodunu calistir.
+        if (GUILayout.Button("Generate"))
+        {
+            mapGenerator.GenerateMap();
+        }
     }
 }
